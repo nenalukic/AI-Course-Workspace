@@ -1,0 +1,18 @@
+# Virtual Environments
+venv/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code settings (keeps your personal editor settings private)
+.vscode/
+
+# Mac system files (if you or a teammate use macOS)
+.DS_Store
+
+# Environment variables (for future modules when we use API keys)
+.env
