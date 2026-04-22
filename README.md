@@ -21,46 +21,91 @@ Here is a quick breakdown of the tools used in this project and why they were ch
 
 ## Environment Setup & Installation
 
-To run the code in this repository, you will need Python and Visual Studio Code installed. Follow these steps to replicate the environment.
+To run the code in this repository, you will need Python and Visual Studio Code installed.
 
-### 1. Create and Activate the Virtual Environment
+I highly recommend using **`uv`** (a fast Python package manager written in Rust) to build the environment quickly, though standard Python commands will also work.
+
+---
+
+### 1. Install uv (Recommended)
+
+If you don't have `uv` installed, open your terminal:
+
+* **macOS:**
+
+  ```bash
+  brew install uv
+  ```
+
+* **Windows:**
+
+  ```powershell
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+
+> Note: If you prefer not to install a new tool, you can skip to the fallback instructions below.
+
+---
+
+### 2. Create and Activate the Virtual Environment
+
 Open your terminal in the root folder of this project and run:
 
 **Create the environment:**
+
+```bash
+uv venv venv
+```
+
+**Activate the environment:**
+
+You must run this command every time you open this project to "turn on" the workspace.
+
+* **macOS/Linux:**
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+* **Windows:**
+
+  ```bash
+  .\venv\Scripts\activate
+  ```
+
+You will know it worked when you see `(venv)` at the beginning of your terminal prompt.
+
+---
+
+### 3. Install Required Libraries
+
+Once the environment is active, use `uv` to install all dependencies:
+
+```bash
+uv pip install ipykernel numpy pandas matplotlib seaborn torch torchvision transformers
+```
+
+> Note for VS Code users: Make sure you also install the official **Python** and **Jupyter** extensions from the extensions marketplace.
+
+---
+
+## Fallback: Standard Python Setup
+
+If you skipped installing `uv`, you can achieve the same setup using Python's built-in tools:
+
+**Create the environment:**
+
 ```bash
 python -m venv venv
 ```
 
-**Mac/Linux users: If the above fails, try:**
-```bash
-python3 -m venv venv
-```
+**Activate it** using the commands in Step 2.
 
-**Activate the environment:**
-You must run this command every time you open this project to "turn on" the workspace.
-
-Windows:
-
-```bash
-.\venv\Scripts\activate
-```
-
-Mac/Linux:
-
-```bash
-source venv/bin/activate
-```
-
-(You will know it worked when you see **(venv)** at the beginning of your terminal line).
-
-### 2. Install Required Libraries
-Once the environment is active, install all the necessary dependencies in one go:
+**Install dependencies:**
 
 ```bash
 pip install ipykernel numpy pandas matplotlib seaborn torch torchvision transformers
 ```
-
-(Note for VS Code users: Make sure you also install the official **"Jupyter"** and **"Python"** extensions from the VS Code extensions marketplace).
 
 ## Project Structure & Modules
 This repository is broken down into four progressive modules:
